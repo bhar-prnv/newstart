@@ -32,12 +32,14 @@
 			<div class="form-group">
 				<strong>Upload Multiple Images:</strong>
 				<div class="user-image mb-3 text-center">
-					@php 
-						$images = json_decode($product->product_image);
-					@endphp
-					@foreach($images as $image)
-						<img src='{{env("APP_URL")}}/storage/product-images/{{$image}}'>
-					@endforeach
+					@if($product->product_image != NULL)
+						@php 
+							$images = json_decode($product->product_image);
+						@endphp
+						@foreach($images as $image)
+							<img src='{{env("APP_URL")}}/storage/product-images/{{$image}}'>
+						@endforeach	
+					@endif
 	                <div class="imgPreview"> </div>
 	            </div>            
 	            <div class="custom-file">
